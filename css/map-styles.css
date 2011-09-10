@@ -17,3 +17,10 @@ header {
     border-top: 5px solid #888888;
     border-bottom: 5px solid #888888;
 }
+
+a.easey-cancel {
+    display: block;
+    float: right;
+    font-weight: bold;
+    color: #EEEEEE;
+}

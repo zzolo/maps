@@ -7,6 +7,11 @@ $(document).ready(function() {
   var windowHeight = $(document).height();
   var headerHeight = $('header').height();
 
+  $('a.easey-cancel').click(function(e) {
+    easey.cancel();
+    e.preventDefault();
+  });
+
   wax.tilejson(url, function(tilejson) {
     // Create map.
     var m = new mm.Map('map',
@@ -26,6 +31,30 @@ $(document).ready(function() {
   
     // Interaction
     wax.mm.interaction(m);
+
+    var artData = 'http://x.iriscouch.com/public_art_sf/_design/geo/_spatiallist/geojson/full?attachments=true&bbox=-180,-90,180,90';
+    $.ajax({
+      url: artData,
+      type: 'get',
+      dataType: 'jsonp',
+      success: function(data) {
+      
+        console.log(data);
+        var fly = [];
+        
+        for (var n in data.features) {
+          fly.push({
+            location: new mm.Location(data.features[n].geometry.coordinates[1], data.features[n].geometry.coordinates[0]),
+            zoom: (Math.floor(Math.random() * 4) + 12),
+            time: 4000,
+            ease: 'linear'
+          });
+        }
+        
+        easey.sequence(m, fly);
+      }
+    });
+    
   });
 
 });
