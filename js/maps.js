@@ -1,5 +1,5 @@
 var mm = com.modestmaps;
-var url = 'http://a.tiles.mapbox.com/zzolo/1.0.0/sf_map/layer.json';
+var url = 'http://a.tiles.mapbox.com/zzolo/1.0.0/sf_map_4025bc/layer.json';
 
 
 $(document).ready(function() {
