@@ -1,6 +1,7 @@
 var mm = com.modestmaps;
 var url = 'http://a.tiles.mapbox.com/zzolo/1.0.0/sf_map/layer.json';
 
+
 $(document).ready(function() {
   var windowWidth = $(window).width();
   var windowHeight = $(document).height();
@@ -10,7 +11,7 @@ $(document).ready(function() {
     // Create map.
     var m = new mm.Map('map',
       new wax.mm.connector(tilejson),
-      new mm.Point(windowWidth, windowHeight - headerHeight - 50));
+      new mm.Point(windowWidth, windowHeight - headerHeight - 80));
   
     // Add legend.
     wax.mm.legend(m, tilejson).appendTo(m.parent);
