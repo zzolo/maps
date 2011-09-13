@@ -32,30 +32,40 @@ $(document).ready(function() {
     // Interaction
     wax.mm.interaction(m);
 
-    /*
-    var artData = 'http://x.iriscouch.com/public_art_sf/_design/geo/_spatiallist/geojson/full?attachments=true&bbox=-180,-90,180,90';
-    $.ajax({
-      url: artData,
-      type: 'get',
-      dataType: 'jsonp',
-      success: function(data) {
+    var artData = './js/sf_art.json';
+    $('.loader').addClass('loading');
+    $.getJSON(artData, function(data) {
+      $('.loader').removeClass('loading');
       
-        console.log(data);
-        var fly = [];
+      var artLength = data.features.length;
+      var position = 0;
+      
+      var artShow = function(pos) {
+        var feature = new mm.Location(data.features[pos].geometry.coordinates[1], data.features[pos].geometry.coordinates[0]);
         
-        for (var n in data.features) {
-          fly.push({
-            location: new mm.Location(data.features[n].geometry.coordinates[1], data.features[n].geometry.coordinates[0]),
-            zoom: (Math.floor(Math.random() * 4) + 12),
-            time: 4000,
-            ease: 'linear'
-          });
-        }
-        
-        easey.sequence(m, fly);
-      }
+        easey.slow(m, {
+          location: feature,
+          zoom: Math.floor((Math.random() * 2) + 13),
+          time: 2000,
+          ease: 'easeOut'
+        });
+      };
+      
+      $('.random').click(function() {
+        position = Math.floor(Math.random() * (artLength));
+        artShow(position);
+      });
+      
+      $('.next').click(function() {
+        position++;
+        artShow(position);
+      });
+      
+      $('.prev').click(function() {
+        position--;
+        artShow(position);
+      });
     });
-    */
     
     // Some small nice visuals.
     var parks = $('<div>').addClass('parks-icon').addClass('legend-icons');
