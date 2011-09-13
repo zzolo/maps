@@ -24,3 +24,55 @@ a.easey-cancel {
     font-weight: bold;
     color: #EEEEEE;
 }
+
+ul.legend {
+  list-style: none;
+  padding: 0;
+  margin: 0 5px;
+}
+.legend-icons {
+  width: 15px;
+  height: 15px;
+  float: left;
+  margin-right: 5px;
+}
+.parks-icon {
+  background-color: rgba(102, 255, 51, 0.7);
+}
+.water-icon {
+  background-color: rgba(51, 102, 255, 0.7);
+}
+.art-icon {
+  background-color: rgba(255, 51, 102, 0.7);
+}
+
+div.art-teaser {
+  font-size: 1.5em;
+}
+
+.art-full h3 {
+  font-size: 1.5em;
+}
+.art-full ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.art-full ul li {
+  margin-bottom: 10px;
+}
+.wax-popup {
+  padding: 10px;
+}
+.wax-popup .art-id,
+.wax-popup .art-attachments {
+  display: none;
+}
+
+
+.wax-popup a.close {
+  text-replace: 'X';
+  color: #EEEEEE;
+  margin-top: 10px;
+  margin-right: 10px;
+}

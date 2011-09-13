@@ -32,6 +32,7 @@ $(document).ready(function() {
     // Interaction
     wax.mm.interaction(m);
 
+    /*
     var artData = 'http://x.iriscouch.com/public_art_sf/_design/geo/_spatiallist/geojson/full?attachments=true&bbox=-180,-90,180,90';
     $.ajax({
       url: artData,
@@ -54,6 +55,15 @@ $(document).ready(function() {
         easey.sequence(m, fly);
       }
     });
+    */
+    
+    // Some small nice visuals.
+    var parks = $('<div>').addClass('parks-icon').addClass('legend-icons');
+    $('li.parks').prepend(parks);
+    var water = $('<div>').addClass('water-icon').addClass('legend-icons');
+    $('li.water').prepend(water);
+    var art = $('<div>').addClass('art-icon').addClass('legend-icons');
+    $('li.art').prepend(art);
     
   });
 
