@@ -18,7 +18,8 @@ $(document).ready(function() {
     // Create map.
     var m = new mm.Map('map',
       new wax.mm.connector(tilejson),
-      new mm.Point(mapWidth, mapHeight));
+      new mm.Point(mapWidth, mapHeight)
+    );
   
     // Add legend.
     wax.mm.legend(m, tilejson).appendTo(m.parent);
@@ -40,38 +41,46 @@ $(document).ready(function() {
       $('.loader').removeClass('loading');
       
       var extent = m.getExtent();
-console.log(extent[0]);
       var artLength = data.features.length;
       var position = 0;
       
       // Overlay map to highlight art.
-      var mapOverlay = function() {
-        if ($('.map-overlay').length == 0) {
-          var $overlay = $('<div>').addClass('map-overlay')
-            .width(windowWidth)
-            .height(windowHeight - headerHeight - 80)
-            .hide();
-          $overlay.appendTo($(m.parent));
+      var mapOverlayIn = function() {
+        // Create overlay divs if needed.
+        if ($(m.parent).find('.map-overlay-container').length == 0) {
+          $('.map-overlay-container').hide();
+          // Set dimensions
+          $('.map-overlay-container').width(mapWidth).height(mapHeight);
+          $('.map-overlay-top').width(mapWidth).height((mapHeight / 2) - 50);
+          $('.map-overlay-left').width((mapWidth / 2) - 50).height(100).css('top', (mapHeight / 2) - 50);
+          $('.map-overlay-right').width((mapWidth / 2) - 50).height(100).css('top', (mapHeight / 2) - 50);
+          $('.map-overlay-bottom').width(mapWidth).height((mapHeight / 2) - 50);
+          // Add to map
+          $(m.parent).append($('.map-overlay-container'));
         }
-        $('.map-overlay').fadeIn();
+        $('.map-overlay-container').fadeIn();
+      }
+      
+      // Remove overlay.
+      var mapOverlayOut = function() {
+        $('.map-overlay-container').fadeOut();
       }
       
       // Go to specific artwork
       var artShow = function(pos) {
         var feature = new mm.Location(data.features[pos].geometry.coordinates[1], data.features[pos].geometry.coordinates[0]);
+        console.log(data.features[pos]);
         
-        $('.map-overlay').fadeOut();
-        
+        mapOverlayOut();
         easey.slow(m, {
           location: feature,
           zoom: Math.floor((Math.random() * 2) + 13),
           time: 2000,
           ease: 'easeOut',
           callback: function() {
-            mapOverlay();
+            mapOverlayIn();
           }
         });
-        
       };
       
       $('.random').click(function() {

@@ -78,10 +78,27 @@ div.art-teaser {
 }
 
 
-.map-overlay {
+.map-overlay-container {
   position: absolute;
   left: 0;
   top: 0;
-  background: url('../img/circle-100.png') center center no-repeat;
+  background: url('../img/circle-target.png') center center no-repeat;
+}
+.map-overlay {
   background-color: rgba(100, 100, 100, 0.8);
+  position: absolute;
+}
+.map-overlay-top {
+  left: 0;
+  top: 0;
+}
+.map-overlay-left {
+  left: 0;
+}
+.map-overlay-right {
+  right: 0;
+}
+.map-overlay-bottom {
+  left: 0;
+  bottom: 0;
 }
