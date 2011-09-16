@@ -76,3 +76,12 @@ div.art-teaser {
   margin-top: 10px;
   margin-right: 10px;
 }
+
+
+.map-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: url('../img/circle-100.png') center center no-repeat;
+  background-color: rgba(100, 100, 100, 0.8);
+}

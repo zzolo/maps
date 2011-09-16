@@ -6,6 +6,8 @@ $(document).ready(function() {
   var windowWidth = $(window).width();
   var windowHeight = $(document).height();
   var headerHeight = $('header').height();
+  var mapHeight = windowHeight - headerHeight - 80;
+  var mapWidth = windowWidth;
 
   $('a.easey-cancel').click(function(e) {
     easey.cancel();
@@ -16,7 +18,7 @@ $(document).ready(function() {
     // Create map.
     var m = new mm.Map('map',
       new wax.mm.connector(tilejson),
-      new mm.Point(windowWidth, windowHeight - headerHeight - 80));
+      new mm.Point(mapWidth, mapHeight));
   
     // Add legend.
     wax.mm.legend(m, tilejson).appendTo(m.parent);
@@ -37,18 +39,39 @@ $(document).ready(function() {
     $.getJSON(artData, function(data) {
       $('.loader').removeClass('loading');
       
+      var extent = m.getExtent();
+console.log(extent[0]);
       var artLength = data.features.length;
       var position = 0;
       
+      // Overlay map to highlight art.
+      var mapOverlay = function() {
+        if ($('.map-overlay').length == 0) {
+          var $overlay = $('<div>').addClass('map-overlay')
+            .width(windowWidth)
+            .height(windowHeight - headerHeight - 80)
+            .hide();
+          $overlay.appendTo($(m.parent));
+        }
+        $('.map-overlay').fadeIn();
+      }
+      
+      // Go to specific artwork
       var artShow = function(pos) {
         var feature = new mm.Location(data.features[pos].geometry.coordinates[1], data.features[pos].geometry.coordinates[0]);
+        
+        $('.map-overlay').fadeOut();
         
         easey.slow(m, {
           location: feature,
           zoom: Math.floor((Math.random() * 2) + 13),
           time: 2000,
-          ease: 'easeOut'
+          ease: 'easeOut',
+          callback: function() {
+            mapOverlay();
+          }
         });
+        
       };
       
       $('.random').click(function() {
