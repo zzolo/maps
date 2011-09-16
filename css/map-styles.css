@@ -102,3 +102,29 @@ div.art-teaser {
   left: 0;
   bottom: 0;
 }
+
+.overlay-art-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 200px;
+  z-index: 999999;
+  border-radius: 5px;
+  margin-left: 100px;
+  margin-top: 60px;
+}
+.overlay-title {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.2em;
+  z-index: 999999;
+  margin-left: 100px;
+  margin-top: 10px;
+  color: #EEEEEE;
+  background: rgba(33, 33, 33, 0.8);
+  border: 1px solid #222222;
+  border-radius: 5px;
+  padding: 10px;
+  max-width: 400px;
+}
