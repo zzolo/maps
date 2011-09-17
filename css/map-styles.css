@@ -128,3 +128,31 @@ div.art-teaser {
   padding: 10px;
   max-width: 400px;
 }
+
+
+.player {
+  width: 200px;
+  float: right;
+}
+.player a {
+  display: block;
+  float: right;
+  width: 32px;
+  height: 32px;
+  margin-top: 15px;
+}
+.player .prev {
+  background-image: url('../img/media-seek-backward.png');
+}
+.player .next {
+  background-image: url('../img/media-seek-forward.png');
+}
+.player .play {
+  background-image: url('../img/media-playback-start.png');
+}
+.player .pause {
+  background-image: url('../img/media-playback-pause.png');
+}
+.player .stop {
+  background-image: url('../img/media-playback-stop.png');
+}

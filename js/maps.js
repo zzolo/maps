@@ -124,12 +124,18 @@ $(document).ready(function() {
       
       $('.next').click(function() {
         position++;
+        if (position > artLength) position = artLength;
         artShow(position);
       });
       
       $('.prev').click(function() {
         position--;
+        if (position < 0) position = 0;
         artShow(position);
+      });
+      
+      $('.stop').click(function() {
+        mapOverlayOut();
       });
     });
     
