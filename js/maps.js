@@ -161,6 +161,10 @@ $(document).ready(function() {
       
       $('.stop').click(function() {
         mapOverlayOut();
+        $(window).stopTime('art-player');
+        $thisbutton.removeClass('playing');
+        $thisbutton.addClass('pausing');
+        easey.cancel();
       });
     });
     
@@ -171,6 +175,26 @@ $(document).ready(function() {
     $('li.water').prepend(water);
     var art = $('<div>').addClass('art-icon').addClass('legend-icons');
     $('li.art').prepend(art);
+    
+    // About and instructions
+    $('.instructions-go').toggle(function() {
+      $('#about').hide();
+      $(m.parent).append($('#instructions'));
+      $('#instructions').fadeIn();
+    },
+    function() {
+      $('#about').hide();
+      $('#instructions').fadeOut();
+    });
+    $('.about-go').toggle(function() {
+      $('#instructions').hide();
+      $(m.parent).append($('#about'));
+      $('#about').fadeIn();
+    },
+    function() {
+      $('#instructions').hide();
+      $('#about').fadeOut();
+    });
     
   });
 

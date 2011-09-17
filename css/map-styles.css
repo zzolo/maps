@@ -1,28 +1,32 @@
 body {
-    background-color: #222222;
+  background-color: #222222;
 }
 
 h1 {
-    color: #DDDDDD;
+  color: #DDDDDD;
 }
 header {
-    background-color: #222222;
-    display: block;
-    padding: 5px 20px;
+  background-color: #222222;
+  display: block;
+  padding: 5px 20px;
 }
 
 #map {
-    width: 100%;
-    height: 200px;
-    border-top: 5px solid #888888;
-    border-bottom: 5px solid #888888;
+  width: 100%;
+  height: 200px;
+  border-top: 5px solid #888888;
+  border-bottom: 5px solid #888888;
+}
+
+a, a:visited, a:hover, a:visited:hover {
+  color: #EEEEEE;
 }
 
 a.easey-cancel {
-    display: block;
-    float: right;
-    font-weight: bold;
-    color: #EEEEEE;
+  display: block;
+  float: right;
+  font-weight: bold;
+  color: #EEEEEE;
 }
 
 ul.legend {
@@ -155,4 +159,29 @@ div.art-teaser {
 }
 .player .stop {
   background-image: url('../img/media-playback-stop.png');
+}
+
+.instructions-go,
+.about-go {
+  display: block;
+  float: left;
+  margin-left: 15px;
+  width: 10%;
+  clear: left;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+#instructions,
+#about {
+  position: absolute;
+  bottom: 10px;
+  left : 10px;
+  color: #EEEEEE;
+  width: 300px;
+  background: rgba(33, 33, 33, 0.8);
+  border: 1px solid #222222;
+  border-radius: 5px;
+  padding: 10px;
+  z-index: 9999999;
 }

@@ -26,10 +26,10 @@
   <div id="container">
     <header>
         <div class="player">
-          <a class="stop" title="Stop the player all together and remove any overlay."></a>
-          <a class="next" title="Go to next in feed."></a>
-          <a class="play-pause pausing" title="Press to fly through the map, stopping on random art in SF."></a>
-          <a class="prev" title="Go to previous in feed."></a>
+          <a href="#" class="stop" title="Stop the player all together and remove any overlay."></a>
+          <a href="#" class="next" title="Go to next in feed."></a>
+          <a href="#" class="play-pause pausing" title="Press to fly through the map, stopping on random art in SF."></a>
+          <a href="#" class="prev" title="Go to previous in feed."></a>
         </div>
         <h1>Public Art in San Francisco</h1>
     </header>
@@ -38,6 +38,32 @@
     </div>
     
     <footer>
+      <div id="instructions" style="display:none;">
+        <p><strong>The map</strong><br> Pan around the map to search for art around San Francisco.  Roll over points to see the title of art, and click on the points to get all the information about the art pieces.</p>
+        <p><strong>The player</strong><br> Use the player controls in the top right to fly around the map.  As you fly through you will see the title and an image of the art if it's available.  Use the stop button to remove the overlay.</p>
+      </div>
+      
+      <div id="about" style="display:none;">
+        <p><strong>Data</strong><br> All the data on this map is open, public data from the city of San Francisco found at <a href="http://datasf.org/">datasf.org</a>.  Data including 
+          <a href="http://datasf.org/story.php?title=physical-features-elevation-contours-">elevation lines</a>, 
+          <a href="http://datasf.org/story.php?title=publicly-accessible-open-spaces">parks and open spaces</a>, 
+          <a href="http://datasf.org/story.php?title=water-bodies-in-san-francisco-">bodies of water</a>, and 
+          <a href="http://datasf.org/story.php?title=publically-sited-artworks-in-the-civic-art-collection">public art</a>.</p>
+          
+        <p><strong>The code</strong><br> Get the code on <a href="http://github.com/zzolo/maps">Github</a>.</p>
+        
+        <p><strong>Giants</strong><br> Lost of great people's work was used to make this including
+          <a href="http://mapbox.com/tilemill/">TileMill</a>,
+          <a href="http://mapbox.com/tilestream/">TileStream</a>,
+          <a href="https://github.com/stamen/modestmaps-js">Modest Maps</a>,
+          <a href="http://mapbox.com/wax/">Wax</a>,
+          <a href="http://mapbox.com/easey/">Easey</a>,
+          <a href="http://html5boilerplate.com/">HTML5 Boilerplate</a>,
+          <a href="http://tango.freedesktop.org/Tango_Icon_Library">Tango Icons</a>.</p>
+      </div>
+      
+      <a href="#" class="instructions-go">Instructions</a>
+      <a href="#" class="about-go">About</a>
     </footer>
   </div> <!--! end of #container -->
 
