@@ -147,11 +147,11 @@ div.art-teaser {
 .player .next {
   background-image: url('../img/media-seek-forward.png');
 }
-.player .play {
-  background-image: url('../img/media-playback-start.png');
-}
-.player .pause {
+.player .playing {
   background-image: url('../img/media-playback-pause.png');
+}
+.player .pausing {
+  background-image: url('../img/media-playback-start.png');
 }
 .player .stop {
   background-image: url('../img/media-playback-stop.png');

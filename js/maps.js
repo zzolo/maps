@@ -1,3 +1,8 @@
+/**
+ * Public art explorer in SF.  This is not a good exmaple of
+ * well-written code.
+ */
+
 var mm = com.modestmaps;
 var url = 'http://a.tiles.mapbox.com/zzolo/1.0.0/sf_map_4025bc/layer.json';
 
@@ -117,9 +122,29 @@ $(document).ready(function() {
         });
       };
       
-      $('.random').click(function() {
-        position = Math.floor(Math.random() * (artLength));
-        artShow(position);
+      $('.play-pause').click(function() {
+        $thisbutton = $(this);
+        if ($thisbutton.hasClass('playing')) {
+          $thisbutton.removeClass('playing');
+          $thisbutton.addClass('pausing');
+        
+          // Pause go though
+          $(window).stopTime('art-player');
+        }
+        else {
+          $thisbutton.removeClass('pausing');
+          $thisbutton.addClass('playing');
+          
+          // Go to random spot, then fly through at interval
+          position = Math.floor(Math.random() * (artLength));
+          artShow(position);
+            
+          $(window).everyTime(6000, 'art-player', function() {
+            position = Math.floor(Math.random() * (artLength));
+            artShow(position);
+          });
+        }
+        
       });
       
       $('.next').click(function() {
